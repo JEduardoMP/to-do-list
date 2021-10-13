@@ -10,7 +10,7 @@ const initialState = {
 const reducer = (state, action) =>{
     switch(action.type) {
         case 'ADD':
-            if(action.payload.task.Todo === '' || action.payload.task.Todo === state.task.filter(element =>  element.Todo)){
+            if(action.payload.task.Todo === '' || state.task.some(element =>  element.Todo === action.payload.task.Todo)){
                 console.log('Error')
                 return{
                     ...state
